@@ -1,0 +1,18 @@
+
+.pmd-footer {
+    display: flex; /* Utiliser Flexbox pour aligner les éléments horizontalement */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+  }
+  
+  .follow {
+    margin-right: 20px; /* Ajouter un espacement entre les éléments "Follow Us" et le texte du copyright */
+  }
+  
+  .follow a {
+    margin: 0 10px; /* Ajouter un espacement entre les liens */
+  }
+  
+
+
+  

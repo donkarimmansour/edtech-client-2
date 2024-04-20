@@ -1,0 +1,30 @@
+.container {
+    background-color: #6b9fca;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden; /* Masquer le contenu dépassant de la hauteur fixe */
+  }
+  
+  .container h4 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0; /* Supprimer la marge supérieure par défaut */
+  }
+  
+  .container p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 0; /* Supprimer la marge inférieure par défaut */
+  }
+  
+  

@@ -1,0 +1,98 @@
+<!-- <div class="petit_mot">
+    Explorez un univers infini de connaissances avec notre vaste collection de cours d'apprentissage. Découvrez les dernières leçons, parcourez les fondamentaux intemporels et plongez dans une aventure d'apprentissage captivante.
+  </div>
+  <app-search-bar-quiz (searchEvent)="handleSearchResults($event)"></app-search-bar-quiz>
+   
+   
+  <div class="movie-container">
+    <app-quiz-item *ngFor ="let  quiz of searchResults"
+                   [quiz]="quiz" > </app-quiz-item>
+  </div>
+  <div class="movie-container">
+    <app-quiz-item *ngFor ="let  quiz of quizes"
+                   [quiz]="quiz" > </app-quiz-item>
+  </div>
+  <div class="quizgen">
+    <input type="text" [(ngModel)]="coursName" placeholder="Entrer nom du cours a generer avec AI">
+    <button (click)="createquiz(coursName)">Create Quiz</button>
+</div>
+ 
+ -->
+<!-- 
+<section class="course-area section-padding">
+  <div class="container">
+
+      <div class="row">
+
+        <app-quiz-item *ngFor ="let  quiz of searchResults" [quiz]="quiz"class="col-lg-4 responsive-column-half" > </app-quiz-item>
+        <app-quiz-item *ngFor ="let  quiz of quizes" [quiz]="quiz"class="col-lg-4 responsive-column-half" > </app-quiz-item>
+
+      
+      </div>
+  </div>
+</section> -->
+
+ 
+
+  
+<section class="my-courses-area pt-30px pb-90px">
+  <div class="container">
+      <div class="my-course-content-wrap">
+          <div class="tab-content" id="myTabContent">
+              
+            
+              <div class="tab-pane fade show active" id="all-course" role="tabpanel" aria-labelledby="all-course-tab">
+                 
+                
+                <div class="my-course-body">
+                  
+                      <div class="alert alert-info alert-dismissible fade show course-alert-info" role="alert">
+                          <div class="d-flex align-items-center">
+                              <i class="la la-users fs-40"></i> <a class="alert-link font-weight-medium pl-4">Explorez un univers infini de connaissances avec notre vaste collection de cours d'apprentissage. Découvrez les dernières leçons, parcourez les fondamentaux intemporels et plongez dans une aventure d'apprentissage captivante.</a>
+                          </div>
+                      </div> 
+
+
+                      <app-search-bar-quiz (searchEvent)="handleSearchResults($event)" class="my-course-filter-wrap d-flex align-items-center pt-2"></app-search-bar-quiz>
+
+                      <form method="post" class="pt-4" (ngSubmit)="createquiz(coursName)" #aiForm="ngForm">
+                      
+                        <div class="input-box">
+                          <label class="label-text">Cours Name</label>
+                          <div class="form-group">
+                            <input class="form-control form--control" type="text" name="name" [(ngModel)]="coursName"
+                              placeholder="Entrer nom du cours a generer avec AI" required>
+                            <span class="la la-user input-icon"></span>
+                          </div>
+                        </div>
+                      
+                        <div class="btn-box">
+                          <button class="btn theme-btn" type="submit" [disabled]="!aiForm.valid">Create Quiz <i class="la la-arrow-right icon ml-1"></i></button>
+                        </div>
+                      
+                      </form>
+                          
+                 
+
+
+
+
+  
+                        
+                      <div class="my-course-cards pt-40px">
+                          <div class="row">
+                             
+                              <app-quiz-item *ngFor ="let  quiz of searchResults" [quiz]="quiz"class="col-lg-4 responsive-column-half" > </app-quiz-item>
+                              <app-quiz-item *ngFor ="let  quiz of quizes" [quiz]="quiz"class="col-lg-4 responsive-column-half" > </app-quiz-item>
+    
+                          </div>
+                      </div>
+
+
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</section>

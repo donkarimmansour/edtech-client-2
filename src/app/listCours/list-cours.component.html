@@ -1,0 +1,36 @@
+<!--  
+<div class="listCours">
+<div class="petit_mot">
+  Explorez un univers infini de connaissances avec notre vaste collection de cours d'apprentissage. Découvrez les dernières leçons, parcourez les fondamentaux intemporels et plongez dans une aventure d'apprentissage captivante.
+</div>
+<app-search-bar (searchEvent)="handleSearchResults($event)"></app-search-bar>
+
+
+<div class="movie-container">
+  <app-cours-item *ngFor ="let  cours of searchResults"
+                 [cours]="cours" > </app-cours-item>
+</div>
+<app-cours [nomMatiere]="this.nomMatiere"> </app-cours>
+</div>
+ -->
+
+ 
+<section class="course-area section-padding pt-5">
+  <div class="container">
+   
+    <app-search-bar (searchEvent)="handleSearchResults($event)"></app-search-bar>
+
+    <br><br>
+
+    <div class="row">
+
+
+    <app-cours-item *ngFor ="let cours of searchResults" [cours]="cours" class="col-lg-4 responsive-column-half"></app-cours-item>
+    <app-cours-item *ngFor ="let  cours of listeCours" [cours]="cours" class="col-lg-4 responsive-column-half"> </app-cours-item>
+    <!-- <app-cours [nomMatiere]="this.nomMatiere"></app-cours> -->
+
+   </div>
+    
+  </div>
+</section> 
+

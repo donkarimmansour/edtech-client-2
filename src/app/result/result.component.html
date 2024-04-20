@@ -1,0 +1,35 @@
+<!-- <div class="score-container">
+    <h1 class="score-title">Quiz Results</h1>
+    <div class="score-card">
+        <h2 class="score-label">Your Score:</h2>
+        <p class="score-value">{{ score }}</p>
+    </div>
+    <a href="/matiere/Informatique/quiz" class="score-back">Take another quiz</a>
+</div> -->
+
+
+<section class="breadcrumb-area pb-5">
+    <div class="bg-dark pt-60px pb-60px">
+        <div class="container">
+            <div class="breadcrumb-content text-center">
+                <div class="section-heading">
+                    <p class="section__desc text-white-50">Submitted on {{formatDate()}}</p>
+                    <h2 class="section__title text-white pt-2">Your Score is: {{score}}</h2>
+                </div>
+                <div class="breadcrumb-btn-box pt-30px">
+                    <a [routerLink]="['/informatique/attempt/', userName]" class="btn theme-btn theme-btn-transparent text-white-50 mb-2">view attempts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quiz-action-nav bg-white py-3 shadow-sm">
+        <div class="container">
+            <div class="quiz-action-content d-flex flex-wrap align-items-center justify-content-between">
+                <ul class="quiz-nav d-flex flex-wrap align-items-center">
+                    <li><i class="la la-check-circle fs-17 mr-2"></i>{{score}} Score</li>
+                    <li><i class="la la-bar-chart fs-17 mr-2"></i>Intermediate</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+.quizgen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.quizgen input {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.quizgen button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.quizgen button:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,11 @@
+<div class="my-course-filter-item my-course-search-content" style="width: 100%;">
+    <span class="fs-14 font-weight-semi-bold">Rechercher</span>
+    <form method="post" class="pt-2">
+        <div class="input-group mb-0">
+            <input class="form-control form--control form--control-gray pl-3" type="text" [value]="searchTerm" (input)="onSearchInput($event)" placeholder="Rechercher...">
+            <div class="input-group-append">
+                <button class="btn theme-btn shadow-none" (click)="search()"><i class="la la-search"></i></button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+<section class="quiz-result-area pt-60px pb-60px">
+    <div class="container">
+    
+        <div class="quiz-result-item mb-5">
+
+            <div class="list-group"> 
+               
+                <a class="list-group-item list-group-item-action d-flex pb-3"  *ngFor="let attempt of listAttempts; let i = index">
+                    <div class="flex-grow-1">
+                        <h5 class="fs-16">{{ attempt.quizName }}</h5>
+                        <small class="text-muted">{{ attempt.date }}</small>
+                    </div>
+                    <div class="text-center">
+                        <span class="d-block lh-20 font-weight-semi-bold mb-n1">{{ attempt.score }}</span>
+                        <small class="text-uppercase text-muted">score</small>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+   
+    </div>
+</section>

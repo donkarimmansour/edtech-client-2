@@ -1,0 +1,4 @@
+a.disabled {
+    color: #999;
+    pointer-events: none; 
+}

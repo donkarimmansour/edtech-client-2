@@ -1,0 +1,86 @@
+.movieDetails{
+    display: flex;
+    width: 100%;
+    height: 500px; 
+    
+    margin: 0 auto; 
+  }
+  .Desc {
+   
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end;  */
+    object-fit: cover;
+    flex: 1; 
+    position: relative;
+    height: 100%;
+    width: 150%;
+   
+  }
+  
+  .title{
+    text-align: center;
+    font-family: Algerian;
+    margin-top: 0px;
+    font-size: 2em;
+    border-radius: 2rem;
+    color: #800719;
+  
+  }
+  .overview{
+  
+    text-align: left;
+    font-family: "Berlin Sans FB";
+    font-size: 1rem;
+     flex-grow: 1; 
+  }
+  .imageFilm {
+    flex: 1; 
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  .imageAffcihe {
+    width: 100;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 2rem;
+  }
+  
+  
+  .date{
+    margin-left: 1rem;
+    font-family: Algerian;
+    font-size: 25px;
+    color: #800719;
+  }
+  .release{
+    font-size: 22px;
+  
+    height: fit-content;
+    width: fit-content;
+  }
+  .relaeseDate{
+    display: flex;
+    font-family: Algerian;
+  
+  }
+  .vote{
+    font-size: 22px;
+    font-family: Algerian;
+  
+    height: fit-content;
+    text-align: left;
+    width: fit-content;
+  
+  }
+  .voteDiv{
+    display: flex;
+  }
+  .voteValeur{
+    /* margin-left: 6rem; */
+  
+    font-family: Algerian;
+    font-size: 25px;
+    color: #800719;
+  }

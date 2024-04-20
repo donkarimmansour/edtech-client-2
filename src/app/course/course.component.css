@@ -1,0 +1,21 @@
+.course {
+  background-color: #d6f1ff;
+  padding: 50px, 100px;
+}
+
+.box {
+  background-color: #fff;
+  padding: 10px 20px 10px;
+  border-radius: 5px;
+}
+
+.box img {
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .course {
+    background-color: #eff6ff;
+    padding: 50px 10px;
+  }
+}

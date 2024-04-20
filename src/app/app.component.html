@@ -1,0 +1,123 @@
+<header class="header-menu-area bg-white">
+
+
+  <div class="header-top pr-150px pl-150px border-bottom border-bottom-gray py-1">
+      <div class="container-fluid">
+          <div class="row align-items-center">
+          
+              <div class="col-lg-6">
+                  <div class="header-widget">
+                      <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14">
+                          <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-phone mr-1"></i><a href="tel:00123456789"> (00) +212</a></li>
+                          <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:contact@aduca.com"> contact@test.com</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+              
+              <div class="col-lg-6" *ngIf="!isLoggedIn()" >
+                  <div class="header-widget d-flex flex-wrap align-items-center justify-content-end">
+                      <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
+                          <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray" routerLink="signIn"><i class="la la-sign-in mr-1"></i><a> Login</a></li>
+                          <li class="d-flex align-items-center" routerLink="signUp" ><i class="la la-user mr-1"  ></i><a> Créer un compte</a></li>
+                      </ul>
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+ 
+ 
+  <div class="header-menu-content pr-150px pl-150px bg-white border-bottom border-bottom-gray">
+      <div class="container-fluid">
+          <div class="main-menu-content">
+
+
+              <div class="row align-items-center">
+                 
+                  <div class="col-lg-2">
+                      <div class="logo-box">
+                          <a routerLink=""  style="max-width: 60px;" class="logo"><img src="assets/logoEduQuiz.png" alt="logo" class="w-100"></a>
+                         
+                          <div class="user-btn-action">
+                              <div class="off-canvas-menu-toggle main-menu-toggle icon-element icon-element-sm shadow-sm" title="Main menu" (click)="toggleMenu()">
+                                  <i class="la la-bars"></i>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+
+
+                  <div class="col-lg-10">
+                      <div class="menu-wrapper">
+                       
+                          <nav class="main-menu">
+                              <ul>
+                                  <li>
+                                      <a routerLink="">Acceuil</a>
+                                  </li>
+                                  <li>
+                                      <a routerLink="course">Matières</a>
+                                  </li>  
+                                  <li *ngIf="isLoggedIn() && userType === 'student'">
+                                    <a [routerLink]="['/informatique/attempt/', userName]">attempts</a>
+                                 </li>                                     
+                                  <li>
+                                      <a routerLink="about">About</a>
+                                  </li>                                    
+                            
+                              </ul>
+                          </nav>
+                      
+                          <div class="nav-right-button" *ngIf="isLoggedIn()">
+                              <a  (click)="logout()" class="btn theme-btn d-none d-lg-inline-block"><i class="la la-user-plus mr-1"></i> Admission</a>
+                          </div>
+
+
+                      </div>
+                  </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="off-canvas-menu custom-scrollbar-styled main-off-canvas-menu" [class.active]="offCanvasMenuList">
+    
+      <div class="off-canvas-menu-close main-menu-close icon-element icon-element-sm shadow-sm" (click)="closeMenu()" title="Close menu">
+          <i class="la la-times"></i>
+      </div>
+
+      <ul class="generic-list-item off-canvas-menu-list pt-90px" >
+              <li (click)="closeMenu()">
+                  <a  routerLink="">Acceuil</a>
+              </li>
+              <li (click)="closeMenu()">
+                  <a  routerLink="course">Matières</a>
+              </li> 
+              <li *ngIf="isLoggedIn() && userType === 'student'" (click)="closeMenu()">
+                <a [routerLink]="['/informatique/attempt/', userName]">attempts</a>
+             </li>                                      
+              <li (click)="closeMenu()">
+                  <a  routerLink="about">About</a>
+              </li>    
+ 
+      </ul>
+
+
+  </div>
+
+  <div class="body-overlay" [class.active]="offCanvasMenuList"></div>
+</header>
+
+
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

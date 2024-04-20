@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="login-container">
+      <form #uploadForm (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="pdfFile">Sélectionner un fichier PDF :</label>
+          <input type="file" id="pdfFile" (change)="onFileSelected($event)" accept=".pdf">
+        </div>
+        <div class="form-group">
+          <label for="title">Titre du fichier PDF :</label>
+          <input type="text" id="title" name="title" placeholder="Titre du fichier PDF" [(ngModel)]="pdfTitle">
+        </div>
+        
+        <div class="form-group">
+          <label for="nomMatiere">Nom de la matière :</label>
+          <select id="nomMatiere" name="nomMatiere" [(ngModel)]="nomMatiere">
+            <option *ngFor="let matiereName of matiereNames" [value]="matiereName">{{ matiereName }}</option>
+          </select>
+        </div>
+        
+        <button class="btn-login" type="submit">Uploader</button>
+      </form>
+    </div>
+  </div>
+  
