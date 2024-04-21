@@ -10,12 +10,12 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./details-cours.component.css']
 })
 export class DetailsCoursComponent implements OnInit{
-  @Input() title:String='';
-  description: string = '';
-  pdfTitle: string = '';
-  selectedFile!: File;
+  //@Input() title:String='';
+ // description: string = '';
+  //pdfTitle: string = '';
+  //selectedFile!: File;
   pdfData!: ArrayBuffer;
-  pdfUrl: SafeUrl | null = null;
+  //pdfUrl: SafeUrl | null = null;
   
   constructor(private sanitizer: DomSanitizer,private route: ActivatedRoute,private http: HttpClient) { }
 
@@ -27,14 +27,14 @@ export class DetailsCoursComponent implements OnInit{
   }
 
   fetchPdf(title: String): void {
-    console.log("title");
-    console.log(title);
+    // console.log("title");
+    // console.log(title);
     
     
     this.http.get(`http://localhost:8080/cours/${title}`, { responseType: 'arraybuffer' })
       .subscribe((response: ArrayBuffer) => {
-        console.log(response);
-        
+      //  console.log(response);
+      
         this.pdfData = response;
       });
   }

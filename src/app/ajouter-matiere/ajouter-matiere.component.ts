@@ -9,12 +9,18 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./ajouter-matiere.component.css']
 })
 export class AjouterMatiereComponent {
-  nouvelleMatiere!: Matiere;
+
+  nouvelleMatiere: any = {
+    name: null,
+    description: null,
+    image: null
+ }
 
   constructor(private http: HttpClient) { }
 
-
+ 
   onSubmit(): void {
+
     this.ajouterMatiere(this.nouvelleMatiere)
       .subscribe(
         () => {
@@ -27,11 +33,9 @@ export class AjouterMatiereComponent {
         }
       );
   }
-  private apiUrl = 'http://exemple.com/api/matieres';
-
  
   ajouterMatiere(nouvelleMatiere: Matiere): Observable<any> {
-    return this.http.post<any>(this.apiUrl, nouvelleMatiere);
+    return this.http.post<any>('http://localhost:8080/matieres/add', nouvelleMatiere);
   }
 
 }

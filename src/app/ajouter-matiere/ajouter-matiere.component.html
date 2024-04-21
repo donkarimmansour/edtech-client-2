@@ -12,13 +12,13 @@
                         <div class="divider"><span></span></div>
 
 
-                        <form method="post" class="row">
+                        <form class="row"  (ngSubmit)="onSubmit()" #addForm="ngForm">
 
 
                         <div class="col-lg-12">
                             <label class="label-text">Nom de la matière</label>
                             <div class="form-group">
-                                <input class="form-control form--control pl-3" type="text" name="name" placeholder="Nom de la matière">
+                                <input class="form-control form--control pl-3" type="text" name="name" placeholder="Nom de la matière" [(ngModel)]="nouvelleMatiere.name" required>
                             </div>
                         </div>
                         
@@ -26,7 +26,7 @@
                         <div class="col-lg-12">
                           <label class="label-text">Description</label>
                           <div class="form-group">
-                            <textarea class="form-control form--control pl-3" name="description" rows="4" placeholder="Description"></textarea>
+                            <textarea class="form-control form--control pl-3" name="description" rows="4" placeholder="Description"  [(ngModel)]="nouvelleMatiere.description"></textarea>
                           </div>
                         </div>
 
@@ -34,12 +34,12 @@
                           <div class="col-lg-12">
                                 <label class="label-text">URL de l'image</label>
                                 <div class="form-group">
-                                    <input class="form-control form--control pl-3" type="text" name="image" placeholder="URL de l'image">
+                                    <input class="form-control form--control pl-3" type="text" name="image" placeholder="URL de l'image"  [(ngModel)]="nouvelleMatiere.image" required>
                                 </div>
                             </div>        
 
                             <div class="btn-box border-top border-top-gray pt-3 col-lg-12">
-                                <a  class="btn theme-btn w-100">Ajouter <i class="la la-arrow-right icon ml-1"></i></a>
+                                <button [disabled]="!addForm.valid"  class="btn theme-btn w-100">Ajouter <i class="la la-arrow-right icon ml-1"></i></button>
                             </div>
                         
 
