@@ -34,7 +34,7 @@ export class SignInComponent {
             const successMessage = "Login successful!";
             const userName = response.replace(successMessage, '').trim();
             sessionStorage.setItem('userName', userName);
-            sessionStorage.setItem('userType', this.userType ? "teacher" :  "student");
+            sessionStorage.setItem('userType', "student");
             
             console.log(this.successMessage)
           },
@@ -55,6 +55,7 @@ export class SignInComponent {
             const successMessage = "Login successful!";
             const userName = response.replace(successMessage, '').trim();
             sessionStorage.setItem('userName', userName);
+            sessionStorage.setItem('userType', "teacher");
             console.log(this.successMessage)
           },
           error => {

@@ -34,19 +34,18 @@ const routes: Routes = [
   { path: 'signIn', component: SignInComponent },
   { path: 'signUp', component: SignUpComponent },
   // { path: 'footer', component: FooterComponent},
-  // { path: 'StudentProfil', component: StudentProfilComponent},
-  // { path: 'TeacherProfil', component: TeacherProfilComponent},
+  { path: 'StudentProfil', component: StudentProfilComponent},
+  { path: 'TeacherProfil', component: TeacherProfilComponent},
    { path: 'informatique/attempt/:username', component: InformatiqueComponent},
   
-  // { path: 'addCours', component: AjouterCoursComponent },
-  // { path: 'addMatiere', component: AjouterMatiereComponent },
+  { path: 'addCours', component: AjouterCoursComponent },
+  { path: 'addMatiere', component: AjouterMatiereComponent },
   // { path: 'joinnow', component: JoinnowComponent },
   { path: 'about', component: AboutComponent },
   { path: 'course', component: CourseComponent },
-  { path: 'matiere/:nomMatiere', component: MatiereComponent },
-  // { path: 'matiere/:nomMatiere/quiz', component: ListQuizComponent },
   { path: 'matiere/:nomMatiere/listCours', component: listCoursComponent },
-  { path: 'listQuiz', component: ListQuizComponent },
+  { path: 'matiere/:matiere_id/listQuiz', component: ListQuizComponent },
+  { path: 'matiere/:nomMatiere/:matiere_id', component: MatiereComponent },
 
 ];
 

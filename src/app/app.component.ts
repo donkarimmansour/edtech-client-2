@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.userName=sessionStorage.getItem('userName');
-    this.userType=sessionStorage.getItem('userType');
+    this.userType=sessionStorage.getItem('userType');    
   }
 
   isLoggedIn(): boolean {

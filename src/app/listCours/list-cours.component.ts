@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UserServiceService } from '../services/user-service.service';
 import { cours } from '../models/cours';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -20,7 +18,7 @@ export class listCoursComponent implements OnInit {
  
   constructor(private http:HttpClient, private route:ActivatedRoute){}
 
-  handleSearchResults(results: cours[]) {  
+  handleSearchResults(results: cours[]) {   
     this.searchResults = results;
   } 
   
@@ -34,7 +32,7 @@ export class listCoursComponent implements OnInit {
     // });
 
     this.nomMatiere = this.route.snapshot.paramMap.get('nomMatiere');
-
+  
 
     this.getAllCours(this.nomMatiere).subscribe(cours => {
 

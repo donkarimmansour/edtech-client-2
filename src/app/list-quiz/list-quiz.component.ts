@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from '../services/user-service.service';
 import { Quiz } from '../models';
 import { QuizService } from '../services/quiz.service';
 import { ActivatedRoute } from '@angular/router';
@@ -17,9 +16,11 @@ export class ListQuizComponent implements OnInit {
   searchResults: Quiz[] = [];
   quizes:Quiz[]=[]
   coursName: string='';
+  matiere_id: String | null = '';
+  res_start: boolean = false;
 
 
-  constructor(private quizService:QuizService, private http: HttpClient){}
+  constructor(private quizService:QuizService, private http: HttpClient, private route:ActivatedRoute){}
  
   handleSearchResults(results: Quiz[]) {
     this.searchResults = results;
@@ -27,9 +28,15 @@ export class ListQuizComponent implements OnInit {
 
 
   createquiz(cours : string){
-    this.http.post<Quiz>(`http://localhost:8080/quiz/createQuiz?cours=${cours}`, null).subscribe(
+
+    this.res_start = true
+    
+   this.http.get<Quiz>(`http://localhost:8080/quiz/createQuiz?cours=${cours}&matiere_id=${this.matiere_id}`).subscribe(
       response => {
-        console.log(response);
+        //console.log('data!',response);
+        this.res_start = true
+        window.location.reload();
+
       },
       error => {
         console.error('There was an error!', error);
@@ -39,7 +46,10 @@ export class ListQuizComponent implements OnInit {
 
   ngOnInit() {
 
-      this.quizService.getAllQuiz().subscribe(quizes => {
+
+    this.matiere_id = this.route.snapshot.paramMap.get('matiere_id');    
+
+      this.quizService.getAllQuiz(this.matiere_id).subscribe(quizes => {
         this.quizes = quizes;        
       });
   }

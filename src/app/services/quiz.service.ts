@@ -20,15 +20,15 @@ export class QuizService {
   //     { id: 'data/designPatterns.json', name: 'Design Patterns' }
   //   ];
   // }
-  getAllQuiz(): Observable<Quiz[]> {
-    return this.http.get<Quiz[]>(`http://localhost:8080/quiz/get`);
+  getAllQuiz(matiere_id: String | null): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(`http://localhost:8080/quiz/all/${matiere_id}`);
   
     
   }
-  getQuizByMatiereId(id: number): Observable<Quiz> {
-    return this.http.get<Quiz>(`http://localhost:8080/quiz/${id}`);
+  // getQuizByMatiereId(id: number): Observable<Quiz> {
+  //   return this.http.get<Quiz>(`http://localhost:8080/quiz/${id}`);
   
-  }
+  // }
   getQuiz(quizName:String): Observable<Quiz> {
     return this.http.get<Quiz>(`http://localhost:8080/quiz/${quizName}`);
     

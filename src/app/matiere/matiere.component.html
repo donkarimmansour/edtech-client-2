@@ -25,20 +25,20 @@
                         <img  class="cat__img lazy" src="../../assets/quiz.jpg" alt="Category image" style="max-height: 450px;">
                         <div class="category-content">
                             <div class="category-inner">
-                                <h3 class="cat__title"><a routerLink="/listQuiz" >Quiz</a></h3>
-                                <a  class="btn theme-btn theme-btn-sm theme-btn-white"  routerLink="/listQuiz">Explore<i class="la la-arrow-right icon ml-1"></i></a>
+                                <h3 class="cat__title"><a [routerLink]="['/matiere', matiere_id, 'listQuiz']" >Quiz</a></h3>
+                                <a  class="btn theme-btn theme-btn-sm theme-btn-white"  [routerLink]="['/matiere', matiere_id, 'listQuiz']">Explore<i class="la la-arrow-right icon ml-1"></i></a>
                             </div>
                         </div>
                     </div> 
-                  </div>
+                  </div> 
                   
                     <div class="col-6 responsive-column-half">
                       <div class="category-item">
                           <img  class="cat__img lazy" src="../../assets/cours.jpg" alt="Category image" style="max-height: 450px;">
                           <div class="category-content">
                               <div class="category-inner">
-                                  <h3 class="cat__title"><a routerLink="/listCours" >Cours</a></h3>
-                                  <a  class="btn theme-btn theme-btn-sm theme-btn-white"  routerLink="/listCours">Explore<i class="la la-arrow-right icon ml-1"></i></a>
+                                  <h3 class="cat__title"><a [routerLink]="['/matiere', nomMatiere, 'listCours']" >Cours</a></h3>
+                                  <a  class="btn theme-btn theme-btn-sm theme-btn-white" [routerLink]="['/matiere', nomMatiere, 'listCours']">Explore<i class="la la-arrow-right icon ml-1"></i></a>
                               </div>
                           </div>
                       </div>

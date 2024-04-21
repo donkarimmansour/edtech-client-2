@@ -1,22 +1,66 @@
-<div class="movieDetailsContainer">
-    <div   class="movieDetails">
-      <div class="imageFilm">
-        <img class="imageAffcihe" src="./assets/EduQuizLogo.png">
-      </div>
-      <div class="Desc">
-        <p class="title">Mon Profil</p>
-       
-        <div class="relaeseDate">
-          <p class="release">Nom</p>
-          <p class="date">{{userName}}</p>
+<section class="cart-area section--padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+
+                <div class="card card-item">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title fs-22 pb-3">Mon Profil</h3>
+
+                        <div class="divider"><span></span></div>
+
+
+                        <form method="post" class="row">
+                            
+                          <div class="input-box col-lg-6">
+                                <label class="label-text">First Name</label>
+                                <div class="form-group">
+                                    <input class="form-control form--control" type="text" name="name" placeholder="Ahmed">
+                                    <span class="la la-user input-icon"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-box col-lg-6">
+                                <label class="label-text">Last Name</label>
+                                <div class="form-group">
+                                    <input class="form-control form--control" type="text" name="email" placeholder="Ahmed">
+                                    <span class="la la-user input-icon"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="input-box col-lg-12">
+                              <label class="label-text">Nom</label>
+                              <div class="form-group">
+                                  <input class="form-control form--control" type="text" name="Username" placeholder="Ahmed" [value]="userName">
+                                  <span class="la la-user input-icon"></span>
+                              </div>
+                            </div>
+
+                            <div class="input-box col-lg-12">
+                                <label class="label-text">Email Address</label>
+                                <div class="form-group">
+                                    <input class="form-control form--control" type="email" name="email" placeholder="Ahmed@gmail.com" [value]="email">
+                                    <span class="la la-envelope input-icon"></span>
+                                </div>
+                            </div>
+
+                            
+
+                              <div class="btn-box border-top border-top-gray pt-3 col-lg-12">
+                                  <a class="btn theme-btn w-100">Update <i class="la la-arrow-right icon ml-1"></i></a>
+                              </div>
+                          
+
+                        </form>
+                    </div>
+                </div>
+             
+            </div>
+      
         </div>
-        <div class="relaeseDate">
-            <p class="release">Email</p>
-            <p class="date">{{email}}</p>
-          </div>
-       
-        
-      </div>
     </div>
-  </div>
-  
+</section>
+

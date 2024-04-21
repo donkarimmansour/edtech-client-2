@@ -9,14 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MatiereComponent {
   nomMatiere: String='';
+  matiere_id: String | null = '';
   constructor(private route: ActivatedRoute) { }
   
   ngOnInit() {
     
     this.route.params.subscribe(params => {
       const nomMatiere = params['nomMatiere'];
+      const matiere_id = params['matiere_id'];
       // console.log('Nom de la matière:', nomMatiere);
-      this.nomMatiere=nomMatiere
+      this.nomMatiere = nomMatiere
+      this.matiere_id = matiere_id
       
     });
   }

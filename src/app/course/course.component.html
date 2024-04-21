@@ -22,9 +22,9 @@
                         <img  class="cat__img lazy" src="assets/imgmatiere.jpeg" alt="Category image">
                         <div class="category-content">
                             <div class="category-inner">
-                                <h3 class="cat__title"><a [routerLink]="['/matiere', cs.name]" >{{ cs.name }}</a></h3>
+                                <h3 class="cat__title"><a [routerLink]="['/matiere', cs.name, cs.id]" >{{ cs.name }}</a></h3>
                                 <p class="cat__meta">{{ cs.description }}</p>
-                                <a [routerLink]="['/matiere', cs.name]" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
+                                <a [routerLink]="['/matiere', cs.name, cs.id]" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
                             </div>
                         </div>
                     </div>

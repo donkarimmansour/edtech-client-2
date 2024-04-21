@@ -65,6 +65,19 @@
                                   </li>  
                                   <li *ngIf="isLoggedIn() && userType === 'student'">
                                     <a [routerLink]="['/informatique/attempt/', userName]">attempts</a>
+                                 </li>   
+                                 <li *ngIf="isLoggedIn() && userType === 'teacher'">
+                                    <a routerLink="addMatiere">Ajouter une matière
+                                    </a>
+                                 </li>   
+                                 <li *ngIf="isLoggedIn() && userType === 'teacher'">
+                                    <a routerLink="addCours">Ajouter un cours</a>
+                                 </li>    
+                                 <li *ngIf="isLoggedIn() && userType === 'teacher'">
+                                    <a routerLink="TeacherProfil">Profile</a>
+                                 </li>   
+                                 <li *ngIf="isLoggedIn() && userType === 'student'">
+                                    <a routerLink="StudentProfil">Profile</a>
                                  </li>                                     
                                   <li>
                                       <a routerLink="about">About</a>
@@ -103,10 +116,24 @@
               </li> 
               <li *ngIf="isLoggedIn() && userType === 'student'" (click)="closeMenu()">
                 <a [routerLink]="['/informatique/attempt/', userName]">attempts</a>
-             </li>                                      
+             </li>       
+             <li *ngIf="isLoggedIn() && userType === 'teacher'">
+                <a routerLink="addMatiere">Ajouter une matière
+                </a>
+             </li>   
+             <li *ngIf="isLoggedIn() && userType === 'teacher'">
+                <a routerLink="addCours">Ajouter un cours</a>
+             </li>    
+             <li *ngIf="isLoggedIn() && userType === 'teacher'">
+                <a routerLink="TeacherProfil">Profile</a>
+             </li>   
+             <li *ngIf="isLoggedIn() && userType === 'student'">
+                <a routerLink="StudentProfil">Profile</a>
+             </li>                                                              
               <li (click)="closeMenu()">
                   <a  routerLink="about">About</a>
               </li>    
+
  
       </ul>
 
