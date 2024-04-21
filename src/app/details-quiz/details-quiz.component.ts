@@ -17,6 +17,7 @@ import { ScoreService } from '../score.service';
 export class DetailsQuizComponent implements OnInit {
   // quizes!: any[];
   quiz: Quiz | null = null; 
+  userType: string | null | undefined;
   // mode = 'quiz';
   // @Input() quizName: string='';
   // config: QuizConfig = {
@@ -48,8 +49,11 @@ export class DetailsQuizComponent implements OnInit {
   // duration = '';
 
   constructor(private quizService: QuizService, private route: ActivatedRoute, private router: Router) { }
-  
+ 
   ngOnInit() {
+
+    this.userType = sessionStorage.getItem('userType');
+
     // this.quizService.getAllQuiz().subscribe(quizes => {
 
     //   this.quizes = quizes;

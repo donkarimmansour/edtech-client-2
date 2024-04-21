@@ -16,7 +16,7 @@
 </div> 
  -->
 
-
+ 
 
 <section class="quiz-ans-wrap pt-80px pb-80px" *ngIf="quiz">
   <div class="container">
@@ -44,11 +44,13 @@
          
          </div>
      
-          <div class="col-12">
+         
+          <div class="col-12" *ngIf="userType === 'student'">
               <div class="click-to-start-btn-box text-center pt-3" >
                   <a [routerLink]="['/test', quiz.name]" class="btn theme-btn">Submit Quiz</a>
               </div>
           </div>
+
       </div>
   </div>
 </section>

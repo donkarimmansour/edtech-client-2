@@ -16,7 +16,6 @@ export class StudentProfilComponent {
 
   ngOnInit(): void {
     this.userName=sessionStorage.getItem('userName');
-
   }
 
 }

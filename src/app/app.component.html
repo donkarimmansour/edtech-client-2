@@ -61,7 +61,7 @@
                                       <a routerLink="">Acceuil</a>
                                   </li>
                                   <li>
-                                      <a routerLink="course">Matières</a>
+                                      <a routerLink="matiere">Matières</a>
                                   </li>  
                                   <li *ngIf="isLoggedIn() && userType === 'student'">
                                     <a [routerLink]="['/informatique/attempt/', userName]">attempts</a>
@@ -112,7 +112,7 @@
                   <a  routerLink="">Acceuil</a>
               </li>
               <li (click)="closeMenu()">
-                  <a  routerLink="course">Matières</a>
+                  <a  routerLink="matiere">Matières</a>
               </li> 
               <li *ngIf="isLoggedIn() && userType === 'student'" (click)="closeMenu()">
                 <a [routerLink]="['/informatique/attempt/', userName]">attempts</a>

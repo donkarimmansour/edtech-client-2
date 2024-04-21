@@ -42,12 +42,12 @@ const routes: Routes = [
   { path: 'addMatiere', component: AjouterMatiereComponent },
   // { path: 'joinnow', component: JoinnowComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'course', component: CourseComponent },
+  { path: 'matiere', component: MatiereComponent },
   { path: 'matiere/:nomMatiere/listCours', component: listCoursComponent },
-  { path: 'matiere/:matiere_id/listQuiz', component: ListQuizComponent },
-  { path: 'matiere/:nomMatiere/:matiere_id', component: MatiereComponent },
+  { path: 'cours/:nomCours/listQuiz', component: ListQuizComponent },
+  { path: 'cours/:nomCours', component: CourseComponent },
 
-];
+];////////////[routerLink]="['/matiere', cs.name, cs.id]"
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

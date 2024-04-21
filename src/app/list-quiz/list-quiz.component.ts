@@ -16,9 +16,8 @@ export class ListQuizComponent implements OnInit {
   searchResults: Quiz[] = [];
   quizes:Quiz[]=[]
   coursName: string='';
-  matiere_id: String | null = '';
   res_start: boolean = false;
-
+  nomCours: String | null = '';
 
   constructor(private quizService:QuizService, private http: HttpClient, private route:ActivatedRoute){}
  
@@ -31,7 +30,7 @@ export class ListQuizComponent implements OnInit {
 
     this.res_start = true
     
-   this.http.get<Quiz>(`http://localhost:8080/quiz/createQuiz?cours=${cours}&matiere_id=${this.matiere_id}`).subscribe(
+   this.http.get<Quiz>(`http://localhost:8080/quiz/createQuiz?cours=${cours}&nom_cours=${this.nomCours}`).subscribe(
       response => {
         //console.log('data!',response);
         this.res_start = true
@@ -46,10 +45,9 @@ export class ListQuizComponent implements OnInit {
 
   ngOnInit() {
 
+      this.nomCours = this.route.snapshot.paramMap.get('nomCours');    
 
-    this.matiere_id = this.route.snapshot.paramMap.get('matiere_id');    
-
-      this.quizService.getAllQuiz(this.matiere_id).subscribe(quizes => {
+      this.quizService.getAllQuiz(this.nomCours).subscribe(quizes => {
         this.quizes = quizes;        
       });
   }

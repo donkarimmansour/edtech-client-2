@@ -3,10 +3,10 @@
 
         <div class="row align-items-center">
            
-            <div class="col-lg-9 mt-4">
+            <div class="col-lg-9 mt-5">
                 <div class="category-content-wrap">
                     <div class="section-heading">
-                        <h2 class="section__title">Matières</h2>
+                        <h2 class="section__title">{{nomCours}}</h2>
                         <span class="section-divider"></span>
                     </div>
                 </div>
@@ -14,22 +14,35 @@
            
         </div>
 
-        <div class="category-wrapper mt-30px">
-            <div class="row">
-                <div class="col-lg-4 responsive-column-half" *ngFor="let cs of matieres">
 
-                    <div class="category-item">
-                        <img  class="cat__img lazy" src="assets/imgmatiere.jpeg" alt="Category image">
+        <div class="category-wrapper mt-30px mh-100">
+            <div class="row">
+
+                 <div class="col-6 responsive-column-half">
+                   <div class="category-item">
+                        <img  class="cat__img lazy" src="../../assets/quiz.jpg" alt="Category image" style="max-height: 450px;">
                         <div class="category-content">
                             <div class="category-inner">
-                                <h3 class="cat__title"><a [routerLink]="['/matiere', cs.name, cs.id]" >{{ cs.name }}</a></h3>
-                                <p class="cat__meta">{{ cs.description }}</p>
-                                <a [routerLink]="['/matiere', cs.name, cs.id]" class="btn theme-btn theme-btn-sm theme-btn-white">Explore<i class="la la-arrow-right icon ml-1"></i></a>
+                                <h3 class="cat__title"><a [routerLink]="['/cours', nomCours, 'listQuiz']" >Quiz</a></h3>
+                                <a  class="btn theme-btn theme-btn-sm theme-btn-white"  [routerLink]="['/cours', nomCours, 'listQuiz']">Explore<i class="la la-arrow-right icon ml-1"></i></a>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                  </div> 
+                  
+                     <div class="col-6 responsive-column-half">
+                     
+                      <div class="category-item">
+                          <img  class="cat__img lazy" src="../../assets/cours.jpg" alt="Category image" style="max-height: 450px;">
+                          <div class="category-content">
+                              <div class="category-inner">
+                                  <h3 class="cat__title"><a [routerLink]="['/details', nomCours]" >Details</a></h3>
+                                  <a  class="btn theme-btn theme-btn-sm theme-btn-white" [routerLink]="['/details', nomCours]">Explore<i class="la la-arrow-right icon ml-1"></i></a>
+                              </div>
+                          </div>
+                      </div>
 
-                </div>
+                    </div>
             </div>
         </div>
 
