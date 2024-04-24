@@ -7,7 +7,7 @@
 
                     <div class="card-body">
 
-                        <h3 class="card-title fs-22 pb-3">Ajouter une nouvelle matière</h3>
+                        <h3 class="pb-3 card-title fs-22">Ajouter une nouvelle matière</h3>
 
                         <div class="divider"><span></span></div>
 
@@ -15,10 +15,17 @@
                         <form class="row"  (ngSubmit)="onSubmit()" #addForm="ngForm">
 
 
+                            <div class="loader" style="z-index: 99;" *ngIf="res_start">
+                                <svg class="spinner" viewBox="0 0 50 50">
+                                    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                                </svg>
+                               </div>
+
+
                         <div class="col-lg-12">
                             <label class="label-text">Nom de la matière</label>
                             <div class="form-group">
-                                <input class="form-control form--control pl-3" type="text" name="name" placeholder="Nom de la matière" [(ngModel)]="nouvelleMatiere.name" required>
+                                <input class="pl-3 form-control form--control" type="text" name="name" placeholder="Nom de la matière" [(ngModel)]="nouvelleMatiere.name" required>
                             </div>
                         </div>
                         
@@ -26,7 +33,7 @@
                         <div class="col-lg-12">
                           <label class="label-text">Description</label>
                           <div class="form-group">
-                            <textarea class="form-control form--control pl-3" name="description" rows="4" placeholder="Description"  [(ngModel)]="nouvelleMatiere.description"></textarea>
+                            <textarea class="pl-3 form-control form--control" name="description" rows="4" placeholder="Description"  [(ngModel)]="nouvelleMatiere.description"></textarea>
                           </div>
                         </div>
 
@@ -34,12 +41,12 @@
                           <div class="col-lg-12">
                                 <label class="label-text">URL de l'image</label>
                                 <div class="form-group">
-                                    <input class="form-control form--control pl-3" type="text" name="image" placeholder="URL de l'image"  [(ngModel)]="nouvelleMatiere.image" required>
+                                    <input class="pl-3 form-control form--control" type="text" name="image" placeholder="URL de l'image"  [(ngModel)]="nouvelleMatiere.image">
                                 </div>
                             </div>        
 
-                            <div class="btn-box border-top border-top-gray pt-3 col-lg-12">
-                                <button [disabled]="!addForm.valid"  class="btn theme-btn w-100">Ajouter <i class="la la-arrow-right icon ml-1"></i></button>
+                            <div class="pt-3 btn-box border-top border-top-gray col-lg-12">
+                                <button [disabled]="!addForm.valid || res_start"  class="btn theme-btn w-100">Ajouter <i class="ml-1 la la-arrow-right icon"></i></button>
                             </div>
                         
 

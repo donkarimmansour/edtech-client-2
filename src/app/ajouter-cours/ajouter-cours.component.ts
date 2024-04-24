@@ -23,12 +23,11 @@ export class AjouterCoursComponent implements OnInit {
   nomMatiere: string='';
   matiereNames: string[]=[];
   matieres:Matiere[]=[];
+  res_start: boolean = false;
 
   constructor(private sanitizer: DomSanitizer,private route: ActivatedRoute,private http: HttpClient) { }
 
   onFileSelected(event: any) {
-    console.log(event.target.files[0]);
-    
     this.selectedFile = event.target.files[0];
   }
  
@@ -38,14 +37,14 @@ export class AjouterCoursComponent implements OnInit {
 
   onSubmit() {
 
-    if (!!this.nomMatiere) return
+    if (!this.selectedFile) return
+    
+    this.res_start = true
 
     const formData = new FormData();
-    formData.append('id', this.pdfTitle); 
-   
+    //formData.append('id', this.pdfTitle); 
     formData.append('title', this.pdfTitle); // Ajouter le titre au FormData
     formData.append('description', this.description);
-    formData.append('matiere',this.nomMatiere)
     formData.append('matiere',this.nomMatiere)
     formData.append('file', this.selectedFile);
    
@@ -53,9 +52,14 @@ export class AjouterCoursComponent implements OnInit {
     this.http.post<any>('http://localhost:8080/cours/upload', formData).subscribe(
       (response) => {
         console.log('File uploaded successfully');
+        this.res_start = false
+        this.description = ""
+        this.pdfTitle = ""
+
       },
       (error) => {
         console.error('Error uploading file:', error);
+        this.res_start = false
       }
     );
   }

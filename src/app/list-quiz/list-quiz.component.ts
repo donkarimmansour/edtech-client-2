@@ -33,12 +33,13 @@ export class ListQuizComponent implements OnInit {
    this.http.get<Quiz>(`http://localhost:8080/quiz/createQuiz?cours=${cours}&nom_cours=${this.nomCours}`).subscribe(
       response => {
         //console.log('data!',response);
-        this.res_start = true
+        this.res_start = false
         window.location.reload();
 
       },
       error => {
         console.error('There was an error!', error);
+        this.res_start = false
       }
     );
 }

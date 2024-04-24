@@ -1,46 +1,52 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserServiceService } from './services/user-service.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'education';
-  userName:string|null="";
-  userType: string|null="";
-  offCanvasMenuList: boolean =  false
+  userName: string | null = '';
+  userType: string | null = '';
+  offCanvasMenuList: boolean = false;
+  isLoggedIn: boolean = false;
 
+  constructor(
+    private router: Router,
+    private authService: UserServiceService
+  ) {}
 
-  constructor(private router:Router){}
+  ngOnInit(): void {            
+    this.isLoggedIn = !!sessionStorage.getItem('userName');
+    this.authService.updateLoginStatus(this.isLoggedIn)
 
-  ngOnInit(): void {
-    this.userName=sessionStorage.getItem('userName');
-    this.userType=sessionStorage.getItem('userType');    
+    this.authService.getLoginStatus().subscribe((loggedIn: boolean) => {
+      this.isLoggedIn = loggedIn;
+
+      if (loggedIn) {
+        this.userName = sessionStorage.getItem('userName');
+        this.userType = sessionStorage.getItem('userType');
+      } else {
+        this.userName = null;
+        this.userType = null;
+      }
+    });
   }
 
-  isLoggedIn(): boolean {
-    return sessionStorage.getItem('userName') !== null;
+  toggleMenu() {
+    this.offCanvasMenuList = !this.offCanvasMenuList;
   }
 
-  toggleMenu() {    
-    this.offCanvasMenuList = !this.offCanvasMenuList 
+  closeMenu() {
+    this.offCanvasMenuList = false;
   }
-
-
-  closeMenu() {    
-    this.offCanvasMenuList = false
-  }
-
 
   logout(): void {
-    console.log(sessionStorage.getItem('userName'))
-    sessionStorage.removeItem('userName');
-    sessionStorage.removeItem('userType');
-
+    this.authService.logout();
     // Rediriger vers la page de connexion après la déconnexion
     this.router.navigate(['']);
   }
-
 }

@@ -30,13 +30,8 @@ export class SignInComponent {
         .subscribe(
           response => {
             console.log('Login successful:', response);
-            this.successMessage = 'Vous êtes connecté(e) avec succès';
-            const successMessage = "Login successful!";
-            const userName = response.replace(successMessage, '').trim();
-            sessionStorage.setItem('userName', userName);
-            sessionStorage.setItem('userType', "student");
-            
-            console.log(this.successMessage)
+            this.router.navigate(['/']);
+
           },
           error => {
             console.error('Error during login:', error);
@@ -47,16 +42,11 @@ export class SignInComponent {
     } 
     else if (this.userType) {
       
-      this.authService.loginT(this.loginData)
+      this.authService.loginT(this.loginData) 
         .subscribe(
           response => {
             console.log('Login successful:', response);
-            this.successMessage = 'Vous êtes connecté(e) avec succès';
-            const successMessage = "Login successful!";
-            const userName = response.replace(successMessage, '').trim();
-            sessionStorage.setItem('userName', userName);
-            sessionStorage.setItem('userType', "teacher");
-            console.log(this.successMessage)
+            this.router.navigate(['/']);
           },
           error => {
             console.error('Error during login:', error);

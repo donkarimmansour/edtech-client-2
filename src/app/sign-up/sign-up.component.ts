@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
+import { Router } from '@angular/router';
  
   
 
@@ -24,7 +25,7 @@ export class SignUpComponent {
     this.passwordVisible = !this.passwordVisible;
   }
 
-  constructor(private userService:UserServiceService) { }
+  constructor(private userService:UserServiceService, private router: Router) { }
 
   onSubmit() {
     this.userService.addUser(this.user)
@@ -32,7 +33,7 @@ export class SignUpComponent {
         response => {
           console.log('User registered successfully:', response);
           this.successMessage='votre compte est crée avec succès';
-         
+          this.router.navigate(['/signIn']);
         },
         error => {
           console.error('Error registering user:', error);

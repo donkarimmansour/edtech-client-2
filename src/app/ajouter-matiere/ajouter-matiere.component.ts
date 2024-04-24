@@ -15,6 +15,7 @@ export class AjouterMatiereComponent {
     description: null,
     image: null
  }
+ res_start: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -25,10 +26,17 @@ export class AjouterMatiereComponent {
       .subscribe(
         () => {
           console.log('Matière ajoutée avec succès');
+          this.res_start = false
+          this.nouvelleMatiere = {
+            name: null,
+            description: null,
+            image: null
+         }
           // Réinitialiser le formulaire ou faire d'autres actions nécessaires
         },
         error => {
           console.error('Erreur lors de l\'ajout de la matière : ', error);
+          this.res_start = false
           // Gérer l'erreur de manière appropriée
         }
       );
