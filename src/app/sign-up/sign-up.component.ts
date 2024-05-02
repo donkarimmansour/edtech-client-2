@@ -14,7 +14,7 @@ export class SignUpComponent {
   user = {
     userName: '',
     email: '',
-    password: ''
+    password: '' 
     
   };
   errorMessage:String='';
