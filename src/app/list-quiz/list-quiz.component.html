@@ -30,7 +30,7 @@
       
       </div>
   </div>
-</section> -->
+</section> --> 
 
  
 
@@ -57,7 +57,7 @@
  
                       
 
-                      <form method="post" class="pt-4" (ngSubmit)="createquiz(coursName)" #aiForm="ngForm">
+                      <form method="post" class="pt-4" (ngSubmit)="createquiz(coursName)" #aiForm="ngForm" *ngIf="userName && userType === 'teacher'">
                       
                         <div class="input-box">
                           <label class="label-text">Cours Name</label>

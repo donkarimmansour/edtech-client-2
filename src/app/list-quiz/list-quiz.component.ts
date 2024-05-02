@@ -3,13 +3,15 @@ import { Quiz } from '../models';
 import { QuizService } from '../services/quiz.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserServiceService } from '../services/user-service.service';
 
 
-@Component({
+@Component({ 
   selector: 'app-list-quiz',
   templateUrl: './list-quiz.component.html',
   styleUrls: ['./list-quiz.component.css']
 })
+
 export class ListQuizComponent implements OnInit {
   successMessage:String='';
   errorMessage:String=''; 
@@ -18,6 +20,8 @@ export class ListQuizComponent implements OnInit {
   coursName: string='';
   res_start: boolean = false;
   nomCours: String | null = '';
+  userName: string | null = '';
+  userType: string | null = '';
 
   constructor(private quizService:QuizService, private http: HttpClient, private route:ActivatedRoute){}
  
@@ -28,7 +32,7 @@ export class ListQuizComponent implements OnInit {
 
   createquiz(cours : string){
 
-    this.res_start = true
+    this.res_start = true 
     
    this.http.get<Quiz>(`http://localhost:8080/quiz/createQuiz?cours=${cours}&nom_cours=${this.nomCours}`).subscribe(
       response => {
@@ -46,11 +50,16 @@ export class ListQuizComponent implements OnInit {
 
   ngOnInit() {
 
+      this.userName = sessionStorage.getItem('userName');
+      this.userType = sessionStorage.getItem('userType');
+
       this.nomCours = this.route.snapshot.paramMap.get('nomCours');    
 
       this.quizService.getAllQuiz(this.nomCours).subscribe(quizes => {
         this.quizes = quizes;        
       });
+
+
   }
 
 
