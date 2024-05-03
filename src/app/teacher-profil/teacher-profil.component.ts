@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -15,76 +15,62 @@ export class TeacherProfilComponent implements OnInit {
   successMessage:String='';
   res_start: boolean = false;
   passwordVisible: boolean = false;
+  profileForm: FormGroup = this.fb.group({
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required],
+    specialite: [''],
+    adresse: [''],
+    numeroTel: ['', Validators.required],
+    password: ['', [Validators.minLength(8)]]
+   });
 
- 
-  constructor(private http: HttpClient, private router: Router) { }
+   constructor(private http: HttpClient, private fb: FormBuilder) { }
 
-
-  teacher = {
-    nom: '',
-    prenom: '',
-    Adresse: '',
-    specialite: '',
-    numeroTel: '',
-    // codeProf: '',
-    password: ''
-  };
-
-  response = {
-    nom: '',
-    prenom: '',
-    Adresse: '',
-    specialite: '',
-    numeroTel: '',
-    // codeProf: '',
-    password: ''
-  };
 
 
   ngOnInit(): void {
     this.userName = sessionStorage.getItem('userName'); 
+    this.res_start = true
 
-   this.res_start = true
+    this.getTeacher().subscribe(teacher => {
+      this.res_start = false;
 
-   this.getTeacher().subscribe(teacher => {
-     this.teacher = teacher
-      console.log(this.teacher)
+      this.profileForm.patchValue({
+        nom: teacher.nom,
+        prenom: teacher.prenom,
+        specialite: teacher.specialite,
+        adresse: teacher.adresse,
+        numeroTel: teacher.numeroTel,
+        password: teacher.password 
+      });
+      
+    },
 
-      this.res_start = false
-
-   }); 
-
+    error => {
+      console.error('An error occurred while fetching user data:', error);
+      this.res_start = false;
+    });
 
  }
   
-  onSubmit() {
-    this.res_start = true
+ onSubmit() {
+  this.res_start = true
+  this.updateStudent().subscribe(
+    response => {
+      console.log('The user has been updated successfully:', response);
+      this.successMessage = 'Votre mise à jour a été créée avec succès';
+      this.res_start = false;
+      this.successMessage = '';
+      this.errorMessage = '';
+    },
+    error => {
+      console.error('An error occurred while updating the user:', error);
+      this.errorMessage = 'Une erreur est survenue';
+      this.successMessage = '';
+      this.res_start = false;
+    });
 
-    this.updateTeacher()
-      .subscribe(
-        response => {
-          console.log('The user has been updated successfully:', response);
-          this.successMessage='Votre mise à jour a été créée avec succès';
-          
-          // this.getTeacher().subscribe(teacher => {
-
-          //   this.teacher = teacher
-
-          //   console.log(this.teacher)
-
-          //   this.res_start = false
-
-          // }); 
-
-          // this.router.navigate(['/profile']);
-        },
-        error => {
-          console.error('An error occurred while updating the user:', error);
-          this.errorMessage='un erreur est survenu'
-          this.res_start = false
-        }
-      );
-  }
+}
  
 
 
@@ -93,8 +79,12 @@ export class TeacherProfilComponent implements OnInit {
   }
 
 
-  updateTeacher(): Observable<any> {
-    return this.http.put<any>(`http://localhost:8080/teachers/update/${this.userName}`, this.response);
+
+  updateStudent(): Observable<any> {
+    const userData = {
+      ...this.profileForm.value,
+    };
+    return this.http.put<any>(`http://localhost:8080/teachers/update/${this.userName}`, userData);
   }
 
 
